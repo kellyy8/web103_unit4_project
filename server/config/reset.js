@@ -1,0 +1,35 @@
+import dotenv from 'dotenv'
+import { pool } from './database.js'
+
+dotenv.config()
+
+const dropTableQuery = 'DROP TABLE IF EXISTS CustomItems;'
+
+const createTableQuery = `
+CREATE TABLE IF NOT EXISTS CustomItems (
+	id SERIAL PRIMARY KEY,
+	metal VARCHAR(20) NOT NULL CHECK (metal IN ('silver', 'gold')),
+	clasp VARCHAR(20) NOT NULL CHECK (clasp IN ('french-clips', 'ear-wire', 'friction-back', 'clip-ons')),
+	gemstone VARCHAR(20) NOT NULL CHECK (gemstone IN ('ruby', 'sapphire', 'emerald', 'topaz', 'opal', 'diamond', 'moonstone')),
+	charm VARCHAR(20) CHECK (charm IN ('star', 'heart', 'peace')),
+	bead VARCHAR(20) CHECK (bead IN ('square', 'round', 'oval')),
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT clasp_accessory_compatibility CHECK (
+		NOT (clasp = 'friction-back' AND (charm IS NOT NULL OR bead IS NOT NULL))
+	)
+);
+`
+
+const setupDatabase = async () => {
+	try {
+		await pool.query(dropTableQuery)
+		await pool.query(createTableQuery)
+		console.log('Database reset complete. Table "CustomItems" is ready.')
+	} catch (error) {
+		console.error('Database reset failed:', error)
+	} finally {
+		await pool.end()
+	}
+}
+
+setupDatabase()
