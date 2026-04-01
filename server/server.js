@@ -22,7 +22,7 @@ else if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'))
 }
 
-// specify the api path for the server to use
+app.use('/api', earringRouter)
 app.use('/', earringRouter)
 
 if (process.env.NODE_ENV === 'production') {
