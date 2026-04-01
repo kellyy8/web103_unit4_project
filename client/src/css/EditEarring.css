@@ -1,0 +1,56 @@
+.edit-earring-page {
+    border-top: 5px solid #2563eb;
+}
+
+.edit-earring-page h2 {
+    color: #1d4ed8;
+}
+
+.edit-form-actions {
+    margin-top: 8px;
+}
+
+.edit-earring-page .submit-btn {
+    background-color: #2563eb;
+}
+
+.edit-earring-page .submit-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.edit-delete-btn {
+    background-color: #dc2626;
+}
+
+.edit-delete-btn:hover {
+    background-color: #b91c1c;
+}
+
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #a93226;
+}
+
+.delete-btn:disabled,
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

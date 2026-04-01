@@ -29,3 +29,67 @@
 .earring-card strong {
     color: #222;
 }
+
+.details-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #5cb85c;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.details-btn:hover {
+    background-color: #4cae4c;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.card-actions .details-btn,
+.card-actions .update-btn,
+.card-actions .delete-btn {
+    min-height: 40px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.update-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.update-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.card-actions .delete-btn {
+    border: none;
+    border-radius: 6px;
+    background-color: #dc2626;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.card-actions .delete-btn:hover {
+    background-color: #b91c1c;
+}
+
+.card-actions .delete-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
